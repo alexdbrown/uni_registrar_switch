@@ -76,5 +76,21 @@
             $this->assertEquals("Eastern Meds", $test_course->getName());
         }
 
+        function test_deleteOne() {
+            $name = "Western Civ";
+            $number = "HST 101";
+            $test_course = new Course($name, $number);
+            $test_course->save();
+
+            $name2 = "Remedial Math";
+            $number2 = "MTH 64";
+            $test_course2 = new Course($name2, $number2);
+            $test_course2->save();
+
+            $test_course->deleteOne();
+
+            $this->assertEquals(Course::getAll(), [$test_course2]);
+        }
+
     }
 ?>

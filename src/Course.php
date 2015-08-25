@@ -58,6 +58,9 @@
             $this->setName($new_name);
         }
 
+        function deleteOne() {
+            $GLOBALS["DB"]->exec("DELETE FROM courses WHERE id = {$this->getId()};");
+        }
     }
 
 

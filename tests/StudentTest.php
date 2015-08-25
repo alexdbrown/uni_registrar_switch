@@ -73,5 +73,20 @@
 
             $this->assertEquals("Chris the Jerk", $test_student->getName());
         }
+
+        function test_deleteOne() {
+            $name = "Chris";
+            $date = "1111-11-11";
+            $test_student = new Student($name, $date);
+            $test_student->save();
+
+            $name2 = "Dillon";
+            $test_student2 = new Student($name2, $date);
+            $test_student2->save();
+
+            $test_student->deleteOne();
+
+            $this->assertEquals(Student::getAll(), [$test_student2]);
+        }
     }
 ?>
