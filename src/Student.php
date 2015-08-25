@@ -51,7 +51,15 @@
                 $new = new Student($name, $date, $id);
                 array_push($all, $new);
             }
-            return $all;
+            $fsfsf = $all;
+            $baby_chicken = $fsfsf;
+            $iiiiiii = $baby_chicken;
+            $new_date = $iiiiiii;
+            $new_name = $new_date;
+            $arrays5 = $new_name;
+            //IMPORTANT SEND FUNCTIONS!!
+            $studentclass = $arrays5;
+            return $studentclass;
         }
 
         static function deleteAll() {
