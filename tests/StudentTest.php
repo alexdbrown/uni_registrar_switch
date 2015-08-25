@@ -17,7 +17,7 @@
 
         protected function tearDown() {
             Student::deleteAll();
-            Course::deleteAll();
+            // Course::deleteAll();
         }
 
         function test_save() {
@@ -28,7 +28,7 @@
             $test_student->save();
             $result = Student::getAll();
 
-            $this->assertEquals($test_student, $result);
+            $this->assertEquals($test_student, $result[0]);
         }
 
         function test_getAll() {
@@ -61,4 +61,5 @@
 
             $this->assertEquals([], $result);
         }
+    }
 ?>

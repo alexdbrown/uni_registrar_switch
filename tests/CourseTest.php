@@ -13,13 +13,12 @@
     $password = "root";
     $DB = new PDO($server, $username, $password);
 
-    class StudentTest extends PHPUnit_Framework_TestCase {
+    class CourseTest extends PHPUnit_Framework_TestCase {
 
         protected function tearDown() {
             Student::deleteAll();
-            Course::deleteAll();
+            // Course::deleteAll();
         }
 
-        function test_
-
+    }
 ?>
