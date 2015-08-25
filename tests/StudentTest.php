@@ -89,17 +89,16 @@
             $this->assertEquals(Student::getAll(), [$test_student2]);
         }
 
-        function test_addCourse() {
+        function test_addCourse_and_getCourses() {
             $name = "Western Civ";
             $number = "HST 101";
             $test_course = new Course($name, $number);
             $test_course->save();
 
-
-            // $name2 = "Remedial Math";
-            // $number2 = "MTH 64";
-            // $test_course2 = new Course($name2, $number2);
-            // $test_course2->save();
+            $name2 = "Remedial Math";
+            $number2 = "MTH 64";
+            $test_course2 = new Course($name2, $number2);
+            $test_course2->save();
 
             $name = "Chris";
             $date = "1111-11-11";
@@ -107,9 +106,9 @@
             $test_student->save();
 
             $test_student->addCourse($test_course);
-            //$test_student->addCourse($test_course2);
+            $test_student->addCourse($test_course2);
 
-            $this->assertEquals($test_student->getCourses(), [$test_course]);
+            $this->assertEquals($test_student->getCourses(), [$test_course, $test_course2]);
         }
 
     }

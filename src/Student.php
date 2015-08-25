@@ -67,18 +67,15 @@
         }
 
         function getCourses() {
-            // $query = $GLOBALS['DB']->query("SELECT * FROM courses JOIN students ON (courses.students_id = students.id) WHERE students.id = {$this->getId()};");
-            $query = $GLOBALS['DB']->query("SELECT courses_id FROM students_courses WHERE students_id = {$this->getId()};");
-            $courses = $query->fetchAll(PDO::FETCH_ASSOC);
+            $courses = $GLOBALS['DB']->query("SELECT courses.* FROM
+                students JOIN students_courses ON (students.id = students_courses.students_id)
+                         JOIN courses ON (students_courses.courses_id = courses.id)
+                WHERE students.id = {$this->getID()};");
             $all = array();
             foreach($courses as $course) {
-                $courses_id = $course["courses_id"];
-                $result = $GLOBALS["DB"]->query("SELECT * FROM courses WHERE id = {$courses_id};");
-                $returned_course = $result->fetchAll(PDO::FETCH_ASSOC);
-
-                $name = $returned_course[0]["name"];
-                $number = $returned_course[0]["number"];
-                $id = $returned_course[0]["id"];
+                $name = $course["name"];
+                $number = $course["number"];
+                $id = $course["id"];
                 $new = new Course($name, $number, $id);
                 array_push($all, $new);
             }
