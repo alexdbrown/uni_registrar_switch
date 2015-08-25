@@ -92,5 +92,26 @@
             $this->assertEquals(Course::getAll(), [$test_course2]);
         }
 
+        function test_addStudent_and_getStudents() {
+            $name = "Western Civ";
+            $number = "HST 101";
+            $test_course = new Course($name, $number);
+            $test_course->save();
+
+            $name = "Chris";
+            $date = "1111-11-11";
+            $test_student = new Student($name, $date);
+            $test_student->save();
+
+            $name2 = "Dillon";
+            $test_student2 = new Student($name2, $date);
+            $test_student2->save();
+
+            $test_course->addStudent($test_student);
+            $test_course->addStudent($test_student2);
+
+            $this->assertEquals($test_course->getStudents(), [$test_student, $test_student2]);
+        }
+
     }
 ?>

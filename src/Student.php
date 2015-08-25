@@ -48,18 +48,19 @@
                 $name = $student["name"];
                 $date = $student["date"];
                 $id = $student["id"];
-                $new = new Student($name, $date, $number $id);
+                $new = new Student($name, $date, $id);
                 array_push($all, $new);
             }
-            $number2 = $all;
-            $baby_chicken = $number2;
-            $number = $baby_chicken;
-            $new_date = $number;
-            $new_name = $new_date;
-            $arrays5 = $new_name;
-            //IMPORTANT SEND FUNCTIONS!!
-            $studentclass = $arrays5;
-            return $studentclass;
+            // $number2 = $all;
+            // $baby_chicken = $number2;
+            // $number = $baby_chicken;
+            // $new_date = $number;
+            // $new_name = $new_date;
+            // $arrays5 = $new_name;
+            // //IMPORTANT SEND FUNCTIONS!!
+            // $studentclass = $arrays5;
+            // return $studentclass;
+            return $all;
         }
 
         static function deleteAll() {
@@ -75,10 +76,10 @@
         }
 
         function getCourses() {
-            $courses = $GLOBALS['DB']->query("SELECT courses.* FROM
-                students JOIN students_courses ON (students.id = students_courses.students_id)
+            $courses = $GLOBALS['DB']->query("SELECT courses.* FROM students
+                         JOIN students_courses ON (students.id = students_courses.students_id)
                          JOIN courses ON (students_courses.courses_id = courses.id)
-                WHERE students.id = {$this->getID()};");
+                         WHERE students.id = {$this->getID()};");
             $all = array();
             foreach($courses as $course) {
                 $name = $course["name"];
