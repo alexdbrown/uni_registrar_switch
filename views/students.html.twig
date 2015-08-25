@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+        <title>Uni Regi</title>
+    </head>
+    <body>
+        <div class='container'>
+            <h1>Enroll a Student</h1>
+
+            {% if students is not empty %}
+                <p>Here are all your students:</p>
+                <ul>
+                    {% for student in students %}
+                        <li><a href="/students/{{ student.getId }}">{{ student.getDescription }} due by {{ student.getDueDate | date("m/d/Y") }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <form action='/student' method='post'>
+                <div class='form-group'>
+                    <label for='name'>Student Name:</label>
+                    <input id='name' name='name' type='text'>
+                </div>
+                <div class='form-group'>
+                    <label for='date'>Enrollment Date:</label>
+                    <input id='date' name='date' type='date'>
+                </div>
+                <button class='btn btn-success' type='submit'>Add student</button>
+            </form>
+
+            <form action='/delete_students' method='post'>
+                <button class='btn btn-danger' type='submit'>Clear</button>
+            </form>
+
+            <p><a href='/'>Home</a></p>
+        </div>
+    </body>
+</html>
