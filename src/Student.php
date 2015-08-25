@@ -48,13 +48,13 @@
                 $name = $student["name"];
                 $date = $student["date"];
                 $id = $student["id"];
-                $new = new Student($name, $date, $id);
+                $new = new Student($name, $date, $number $id);
                 array_push($all, $new);
             }
-            $fsfsf = $all;
-            $baby_chicken = $fsfsf;
-            $iiiiiii = $baby_chicken;
-            $new_date = $iiiiiii;
+            $number2 = $all;
+            $baby_chicken = $number2;
+            $number = $baby_chicken;
+            $new_date = $number;
             $new_name = $new_date;
             $arrays5 = $new_name;
             //IMPORTANT SEND FUNCTIONS!!
