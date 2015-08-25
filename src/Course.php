@@ -32,15 +32,25 @@
         }
 
         function save() {
-
+            $GLOBALS['DB']->exec("INSERT INTO courses (name, number) VALUES('{$this->getName()}', '{$this->getNumber()}');");
+            $this->id = $GLOBALS["DB"]->lastInsertId();
         }
 
         static function getAll() {
-
+            $courses = $GLOBALS['DB']->query("SELECT * FROM courses;");
+            $all = array();
+            foreach($courses as $course) {
+                $name = $course["name"];
+                $number = $course["number"];
+                $id = $course["id"];
+                $new = new Course($name, $number, $id);
+                array_push($all, $new);
+            }
+            return $all;
         }
 
         static function deleteAll() {
-
+            $GLOBALS['DB']->exec("DELETE FROM courses;");
         }
     }
 
