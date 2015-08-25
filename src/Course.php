@@ -67,8 +67,8 @@
         }
 
         function getStudents() {
-            $students = $GLOBALS['DB']->query("SELECT students.* FROM courses
-                         JOIN students_courses ON (courses.id = students_courses.courses_id)
+            $students = $GLOBALS['DB']->query("SELECT students.* FROM 
+                 courses JOIN students_courses ON (students_courses.courses_id = courses.id)
                          JOIN students ON (students_courses.students_id = students.id)
                          WHERE courses.id = {$this->getID()};");
             $all = array();
