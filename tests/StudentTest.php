@@ -61,5 +61,17 @@
 
             $this->assertEquals([], $result);
         }
+
+        function test_update(){
+            $name = "Chris";
+            $date = "1111-11-11";
+            $test_student = new Student($name, $date);
+            $test_student->save();
+
+            $new_name = "Chris the Jerk";
+            $test_student->update($new_name);
+
+            $this->assertEquals("Chris the Jerk", $test_student->getName());
+        }
     }
 ?>
