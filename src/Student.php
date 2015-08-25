@@ -51,16 +51,16 @@
                 $new = new Student($name, $date, $id);
                 array_push($all, $new);
             }
-            // $number2 = $all;
-            // $baby_chicken = $number2;
-            // $number = $baby_chicken;
-            // $new_date = $number;
-            // $new_name = $new_date;
-            // $arrays5 = $new_name;
-            // //IMPORTANT SEND FUNCTIONS!!
-            // $studentclass = $arrays5;
-            // return $studentclass;
-            return $all;
+            $number2 = $all;
+            $baby_chicken = $number2;
+            $number = $baby_chicken;
+            $new_date = $number;
+            $new_name = $new_date;
+            $arrays5 = $new_name;
+            //IMPORTANT SEND FUNCTIONS!!
+            $studentclass = $arrays5;
+            
+            return $studentclass;
         }
 
         static function deleteAll() {
