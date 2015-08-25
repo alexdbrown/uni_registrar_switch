@@ -64,5 +64,17 @@
             $this->assertEquals([], $result);
         }
 
+        function test_update(){
+            $name = "Western Civ";
+            $number = "HST 101";
+            $test_course = new Course($name, $number);
+            $test_course->save();
+
+            $new_name = "Eastern Meds";
+            $test_course->update($new_name);
+
+            $this->assertEquals("Eastern Meds", $test_course->getName());
+        }
+
     }
 ?>
